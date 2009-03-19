@@ -1,5 +1,5 @@
 class Player
-  attr_reader :score
+  attr_reader :score, :x, :y, :angle
 
   def initialize(window)
     @image = Gosu::Image.new(window, "media/xwing.png", false)
@@ -53,7 +53,7 @@ class Player
     @y += @vel_y
     @y = 440 if @y > 440
     @y = 40 if @y < 40
-    @x += Gosu::offset_x(@angle, 16)
+    @x += Gosu::offset_x(@angle, 8)
     @x %= 640
     @vel_y *= 0.9
   end
